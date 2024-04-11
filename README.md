@@ -61,7 +61,7 @@ fn naive_reduce_sum[size: Int](array: Tensor[type]) -> Float32:
 
 ### Functional Programming
 
-Mojo's support for functional programming enables developers to write concise, expressive code that emphasizes immutability and pure functions. This paradigm is well-suited for tasks that involve transformations on data structures and parallel processing. However, due to the unmaturity of the functional programming paradigm in Mojo, the language does not yet support higher-order functions, currying, or monads. Nevertheless, developers can still leverage functional programming principles to write elegant and efficient code. For example, Mojo provides `map` functions that allows developers to maps a function over a range from 0 to size:
+Mojo's functional programming support enables developers to write concise, expressive code focused on immutability and pure functions. While Mojo's functional programming capabilities are still evolving and lack features like higher-order functions, currying, or monads, developers can still apply functional programming principles effectively. For example, Mojo provides map functions, allowing developers to apply a function over a range from 0 to a specified size.
 
 ```mojo
 from algorithm import map
@@ -70,9 +70,9 @@ fn double(x: Int) -> Int:
     return x * 2
 
 fn main():
- var arr = InlinedFixedVector[Int, 9](9)
- var doubled = map(arr, double)
- print(doubled)
+    var arr = InlinedFixedVector[Int, 9](9)
+    var doubled = map(arr, double)
+    print(doubled)
 ```
 
 ### Object-Oriented Programming
@@ -146,9 +146,9 @@ trait Duck(Bird, Quackable):
 
 This hierarchical trait system empowers developers to create expressive and composable abstractions, fostering code that is both flexible and maintainable.
 
-## Standard library
+## Explore Mojo's Standard Library
 
-Mojo's standard library is a treasure trove of functionality, offering a rich assortment of modules and utilities to streamline development. From mathematical operations to file I/O and networking, the standard library equips developers with the tools they need to build robust and performant applications. Some of the key modules in Mojo's standard library include:
+Mojo's standard library serves as a comprehensive toolkit, encompassing a wide array of modules and utilities aimed at enhancing development efficiency. From fundamental mathematical operations to intricate file I/O and networking tasks, the standard library furnishes developers with indispensable resources for crafting robust and high-performing applications. Here are some notable modules within Mojo's standard library:
 
 - [`tensor`](https://docs.modular.com/mojo/stdlib/tensor/): A module for tensor operations, enabling efficient manipulation of multi-dimensional arrays.
 - [`python`](https://docs.modular.com/mojo/stdlib/python/): A module for interacting with Python code and data structures, facilitating seamless integration with the Python ecosystem.
@@ -156,7 +156,7 @@ Mojo's standard library is a treasure trove of functionality, offering a rich as
 - [`collections`](https://docs.modular.com/mojo/stdlib/collections/): A module for working with collections, including lists, sets, and dictionaries.
 - [`math`](https://docs.modular.com/mojo/stdlib/math/): A module providing mathematical functions such as polynomial evaluation and bit manipulation.
 
-The current Mojo version includes about 20 modules in its standard library, with plans for further expansion and enhancement in future releases.
+Currently, Mojo's standard library comprises approximately 20 modules, each meticulously designed to meet diverse programming needs. Expect ongoing expansion and refinement in future releases, as Mojo evolves to cater to emerging requirements and industry trends.
 
 ## Value Life Cycle
 
@@ -164,9 +164,7 @@ Mojo has no built-in data types with special privileges. All data types in the s
 
 The life of a value in Mojo begins when a variable is initialized and continues up until the value is last used, at which point Mojo destroys it. Mojo destroys every value/object as soon as it's no longer used, using an “as soon as possible” (ASAP) destruction policy that runs after every sub-expression.
 
-### Copy, move constructors, and destructors
-
-Mojo provides a copy constructor, move constructor, and destructor for every struct. The copy constructor is called when a struct is passed by value or returned by value. Below is an example of a struct with copy, move constructors, and a destructor of `HeapArray`:
+For each `struct`, Mojo equips it with copy constructors, move constructors, and destructors. The copy constructor is invoked when passing or returning a `struct` by value. Below illustrates a `HeapArray` struct showcasing copy and move constructors alongside a destructor:
 
 ```mojo
 # Source: https://docs.modular.com/mojo/manual/lifecycle/life
@@ -210,7 +208,7 @@ struct HeapArray:
 
 ## Modules and Package
 
-Mojo provides a packaging system that allows you to organize and compile code libraries into importable files. This page introduces the necessary concepts about how to organize your code into modules and packages (which is a lot like Python), and shows you how to create a packaged binary with the [mojo package](https://docs.modular.com/mojo/cli/package.html) command.
+Mojo offers a sophisticated packaging system designed to streamline the organization and compilation of code libraries into easily importable files. This guide serves as an introduction to the fundamental concepts of structuring your code into modules and packages, akin to the approach used in Python. Furthermore, it provides detailed instructions on crafting a packaged binary using the [mojo package](https://docs.modular.com/mojo/cli/package.html) command.
 
 ### Modules
 
@@ -235,9 +233,19 @@ Notice that this code has no `main()` function, so you can't execute `mymodule.m
 
 ### Packages
 
-A Mojo package is just a collection of Mojo modules in a directory that includes an `__init__.mojo` file. By organizing modules together in a directory, you can then import all the modules together or individually. Optionally, you can also compile the package into a `.mojopkg` or `.📦` file that's easier to share and still compatible with other system architectures.
+A Mojo package is essentially a collection of Mojo modules within a directory structure, accompanied by an `__init__.mojo` file. This systematic arrangement facilitates the importation of modules either as a whole or individually. Moreover, there's the option to compile the package into a more portable `.mojopkg` or `.📦` file format, which ensures compatibility across various system architectures.
 
-You can import a package and its modules either directly from source files or from a compiled `.mojopkg/.📦` file. It makes no real difference to Mojo which way you import a package. When importing from source files, the directory name works as the package name, whereas when importing from a compiled package, the filename is the package name (which you specify with the [mojo package](https://docs.modular.com/mojo/cli/package.html) command—it can differ from the directory name).
+### Importing Packages and Modules
+
+Importing a Mojo package and its constituent modules can be accomplished in two ways:
+
+1. **From Source Files:**
+   - When importing directly from source files, the directory name is utilized as the package name.
+
+2. **From Compiled Package Files (.mojopkg/.📦):**
+   - Importing from a compiled package involves using the filename as the package name, as specified during the compilation process using the [mojo package](https://docs.modular.com/mojo/cli/package.html) command. This filename might differ from the directory name.
+
+Regardless of the method chosen, Mojo treats both approaches equally, ensuring flexibility in the importation process.
 
 ## References
 
@@ -245,3 +253,7 @@ You can import a package and its modules either directly from source files or fr
 - [Mojo Documentation](https://docs.modular.com/mojo/)
 - [Mojo GitHub Repository](https://github.com/modularml/mojo)
 - [Mojo - A New Programming Language for AI](https://refine.dev/blog/mojo-programming-language/#assembling-your-magic-code)
+
+## Appendix
+
+I implemented a Tic-Tac-Toe game in Mojo. You can find the source code [here](https://github.com/minhtran241/mojo-playground/blob/main/tictactoe.mojo). This is a simple example to demonstrate how to use basic syntax and data structures in Mojo. Feel free to check it out and play around with it!
