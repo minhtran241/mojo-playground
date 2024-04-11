@@ -208,11 +208,11 @@ struct HeapArray:
         print("]")
 ```
 
-### Modules and Package
+## Modules and Package
 
 Mojo provides a packaging system that allows you to organize and compile code libraries into importable files. This page introduces the necessary concepts about how to organize your code into modules and packages (which is a lot like Python), and shows you how to create a packaged binary with the [mojo package](https://docs.modular.com/mojo/cli/package.html) command.
 
-#### Modules
+### Modules
 
 A Mojo module is a single Mojo source file that includes code suitable for use by other files that import it. For example, you can create a module to define a struct such as this one:
 
@@ -233,7 +233,7 @@ struct MyPair:
 
 Notice that this code has no `main()` function, so you can't execute `mymodule.mojo`. However, you can import this into another file with a `main()` function and use it there.
 
-#### Packages
+### Packages
 
 A Mojo package is just a collection of Mojo modules in a directory that includes an `__init__.mojo` file. By organizing modules together in a directory, you can then import all the modules together or individually. Optionally, you can also compile the package into a `.mojopkg` or `.📦` file that's easier to share and still compatible with other system architectures.
 
