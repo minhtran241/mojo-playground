@@ -1,8 +1,6 @@
-
-<p align="center">
+<!-- <p align="center">
     <img src="https://modular-assets.s3.amazonaws.com/images/mojo_github_logo_bg.png">
-</p>
-
+</p> -->
 ## Introduction to Mojo Programming Language 🔥
 
 Mojo represents a revolutionary leap forward in programming languages, seamlessly blending the elegance of Python's syntax with the power of systems programming and metaprogramming. This unique amalgamation empowers developers to craft high-performance, portable code that surpasses traditional languages like C, all while seamlessly integrating with the extensive Python ecosystem.
@@ -17,7 +15,7 @@ Rooted in Modular AI's mission to democratize AI programming, Mojo addresses the
 
 ### Performance Prowess
 
-Mojo's performance is nothing short of astonishing, boasting a remarkable 35,000x speed improvement over Python. Leveraging advanced techniques such as Multi-Level Intermediate Representation (MLIR) and the LLVM toolchain, Mojo redefines the boundaries of what's possible, setting new standards for performance-driven programming.
+Mojo's performance is nothing short of astonishing, boasting a remarkable 35,000x speed improvement over Python. Leveraging advanced techniques such as [Multi-Level Intermediate Representation (MLIR)](https://mlir.llvm.org) and the [LLVM toolchain](https://llvm.org), Mojo redefines the boundaries of what's possible, setting new standards for performance-driven programming.
 
 ## Domain of Mojo
 
@@ -39,7 +37,7 @@ Mojo's multi-paradigm approach empowers developers to tackle any problem with ea
 
 ### Imperative Programming
 
-Mojo supports imperative programming, allowing developers to write code that specifies the sequence of operations to be performed. This paradigm is well-suited for tasks that require step-by-step execution. For example, the following code snippet demonstrates an imperative approach to calculating the sum of an array of numbers using the Kahan summation algorithm:
+Mojo supports imperative programming, allowing developers to write code that specifies the sequence of operations to be performed. This paradigm is well-suited for tasks that require step-by-step execution. For example, the following code snippet demonstrates an imperative approach to calculating the sum of an array of numbers using the [Kahan summation algorithm](https://en.wikipedia.org/wiki/Kahan_summation_algorithm):
 
 ```mojo
 # Source: https://github.com/modularml/mojo/blob/main/examples/reduce.mojo
@@ -61,7 +59,7 @@ fn naive_reduce_sum[size: Int](array: Tensor[type]) -> Float32:
 
 ### Functional Programming
 
-Mojo's functional programming support enables developers to write concise, expressive code focused on immutability and pure functions. While Mojo's functional programming capabilities are still evolving and lack features like higher-order functions, currying, or monads, developers can still apply functional programming principles effectively. For example, Mojo provides map functions, allowing developers to apply a function over a range from 0 to a specified size.
+Mojo's functional programming support enables developers to write concise, expressive code focused on immutability and pure functions. While Mojo's functional programming capabilities are still evolving and lack features like higher-order functions, currying, or monads, developers can still apply functional programming principles effectively. For example, Mojo provides `map` functions, allowing developers to apply a function over a range from 0 to a specified size.
 
 ```mojo
 from algorithm import map
@@ -71,7 +69,7 @@ fn double(x: Int) -> Int:
 
 fn main():
     var arr = InlinedFixedVector[Int, 9](9)
-    var doubled = map(arr, double)
+    var doubled = map(arr, double) # Pass the function `double` to `map` as an argument
     print(doubled)
 ```
 
@@ -81,11 +79,9 @@ Mojo's support for object-oriented programming elevates the language to new heig
 
 #### Struct
 
-A cornerstone of Mojo's object-oriented capabilities is the struct, a versatile data structure that encapsulates both fields and methods operating on an abstraction, such as a data type or an object. Fields represent variables holding data relevant to the struct, while methods, functions housed within a struct, typically act upon this field data. For instance, consider the following illustrative code snippet, showcasing an object-oriented approach to defining a Planet class with attributes and methods:
+A cornerstone of Mojo's object-oriented capabilities is the `struct`, a versatile data structure that encapsulates both fields and methods operating on an abstraction, such as a data type or an object. Fields represent variables holding data relevant to the `struct`, while methods, functions housed within a `struct`, typically act upon this field data. For instance, consider the following illustrative code snippet, showcasing an object-oriented approach to defining a Planet class with attributes and methods:
 
 ```mojo
-# Source: https://github.com/modularml/mojo/blob/main/examples/nbody.mojo
-
 @value
 struct Planet:
     var pos: SIMD[DType.float64, 4]
@@ -101,6 +97,8 @@ struct Planet:
         self.pos = pos
         self.velocity = velocity
         self.mass = mass
+
+# Source: https://github.com/modularml/mojo/blob/main/examples/nbody.mojo
 ```
 
 #### Trait
@@ -113,7 +111,7 @@ trait Quackable:
         ...
 ```
 
-Traits, introduced by the trait keyword, consist of method signatures, each denoted by three dots (...) to indicate their unimplemented status. Leveraging traits, developers can create reusable components that adhere to a defined set of behaviors. For instance, Mojo allows the creation of structs conforming to the Quackable trait:
+The `Quackable` trait consist of method signatures, each denoted by three dots (...) to indicate their unimplemented status. Leveraging traits, developers can create reusable components that adhere to a defined set of behaviors. For instance, Mojo allows the creation of structs conforming to the Quackable trait:
 
 ```mojo
 @value
@@ -158,7 +156,9 @@ Mojo's standard library serves as a comprehensive toolkit, encompassing a wide a
 
 Currently, Mojo's standard library comprises approximately 20 modules, each meticulously designed to meet diverse programming needs. Expect ongoing expansion and refinement in future releases, as Mojo evolves to cater to emerging requirements and industry trends.
 
-## Value Life Cycle
+## Value Life Cycle and Ownership
+
+### Life of a Value
 
 Mojo has no built-in data types with special privileges. All data types in the standard library (such as `Bool`, `Int`, and `String`) are implemented as `structs`. You can actually write your own replacements for these types by using low-level primitives provided by [MLIR dialects](https://docs.modular.com/mojo/notebooks/BoolMLIR.html).
 
@@ -167,8 +167,6 @@ The life of a value in Mojo begins when a variable is initialized and continues 
 For each `struct`, Mojo equips it with copy constructors, move constructors, and destructors. The copy constructor is invoked when passing or returning a `struct` by value. Below illustrates a `HeapArray` struct showcasing copy and move constructors alongside a destructor:
 
 ```mojo
-# Source: https://docs.modular.com/mojo/manual/lifecycle/life
-
 struct HeapArray:
     var data: Pointer[Int]
     var size: Int
@@ -204,6 +202,45 @@ struct HeapArray:
                 print(", ", end="")
             print(self.data.load(i), end="")
         print("]")
+
+# Source: https://docs.modular.com/mojo/manual/lifecycle/life
+```
+
+### Ownership
+
+Mojo helps avoid side effects and memory leaks by enforcing a strict ownership model. The ownership model in Mojo utilizes `arguments conventions` to determine the ownership of a value. This specifies whether an argument is mutable or immutable ensure every value has only one owner at a time.
+
+- `borrowed`: The function receives an **immutable reference**. This means the function can read the original value (it is *not* a copy), but it cannot mutate (modify) it.  For example, the following code snippet demonstrates a function that prints a 3x3 Tic-Tac-Toe board:
+
+```mojo
+fn print_board(borrowed board: InlinedFixedVector[Int, 9]):
+    for i in range(3):
+        for j in range(3):
+            print(board[i * 3 + j], end=" ")
+        print()
+```
+
+- `inout`: The function receives a **mutable reference**. This means the function can read and mutate the original value (it is *not* a copy). For example, the following code snippet demonstrates a function that fills a 9-element array with zeros (so it mutates the original array):
+
+```mojo
+fn fill_with_0(inout board: InlinedFixedVector[Int, 9]):
+    for i in range(9):
+        board.append(0)
+```
+
+- `owned`: The function takes **ownership**. This means the function has exclusive mutable access to the argument—the function caller does not have access to this value (anymore). Often, this also implies that the caller should transfer ownership to this function, but that's not always what happens and this might instead be a copy (as you'll learn below). For example, the following code works by making a copy of the string, because—although `take_text()` uses the owned convention—the caller does not include the transfer operator:
+
+```mojo
+fn take_text(owned text: String):
+    text += "!"
+    print(text)
+
+fn my_function():
+    var message: String = "Hello"
+    take_text(message)
+    print(message)
+
+my_function()
 ```
 
 ## Modules and Package
@@ -215,8 +252,6 @@ Mojo offers a sophisticated packaging system designed to streamline the organiza
 A Mojo module is a single Mojo source file that includes code suitable for use by other files that import it. For example, you can create a module to define a struct such as this one:
 
 ```mojo
-# Source: https://docs.modular.com/mojo/manual/packages
-
 struct MyPair:
     var first: Int
     var second: Int
@@ -227,15 +262,17 @@ struct MyPair:
 
     fn dump(self):
         print(self.first, self.second)
+
+# Source: https://docs.modular.com/mojo/manual/packages
 ```
 
 Notice that this code has no `main()` function, so you can't execute `mymodule.mojo`. However, you can import this into another file with a `main()` function and use it there.
 
-### Packages
+### Package
 
 A Mojo package is essentially a collection of Mojo modules within a directory structure, accompanied by an `__init__.mojo` file. This systematic arrangement facilitates the importation of modules either as a whole or individually. Moreover, there's the option to compile the package into a more portable `.mojopkg` or `.📦` file format, which ensures compatibility across various system architectures.
 
-### Importing Packages and Modules
+### Importing Package and Modules
 
 Importing a Mojo package and its constituent modules can be accomplished in two ways:
 
@@ -253,6 +290,8 @@ Regardless of the method chosen, Mojo treats both approaches equally, ensuring f
 - [Mojo Documentation](https://docs.modular.com/mojo/)
 - [Mojo GitHub Repository](https://github.com/modularml/mojo)
 - [Mojo - A New Programming Language for AI](https://refine.dev/blog/mojo-programming-language/#assembling-your-magic-code)
+- [LLVM](https://llvm.org)
+- [MLIR](https://mlir.llvm.org)
 
 ## Appendix
 
