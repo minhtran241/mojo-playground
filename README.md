@@ -157,3 +157,91 @@ Mojo's standard library is a treasure trove of functionality, offering a rich as
 - [`math`](https://docs.modular.com/mojo/stdlib/math/): A module providing mathematical functions such as polynomial evaluation and bit manipulation.
 
 The current Mojo version includes about 20 modules in its standard library, with plans for further expansion and enhancement in future releases.
+
+## Value Life Cycle
+
+Mojo has no built-in data types with special privileges. All data types in the standard library (such as `Bool`, `Int`, and `String`) are implemented as `structs`. You can actually write your own replacements for these types by using low-level primitives provided by [MLIR dialects](https://docs.modular.com/mojo/notebooks/BoolMLIR.html).
+
+The life of a value in Mojo begins when a variable is initialized and continues up until the value is last used, at which point Mojo destroys it. Mojo destroys every value/object as soon as it's no longer used, using an “as soon as possible” (ASAP) destruction policy that runs after every sub-expression.
+
+### Copy, move constructors, and destructors
+
+Mojo provides a copy constructor, move constructor, and destructor for every struct. The copy constructor is called when a struct is passed by value or returned by value. Below is an example of a struct with copy, move constructors, and a destructor of `HeapArray`:
+
+```mojo
+# Source: https://docs.modular.com/mojo/manual/lifecycle/life
+
+struct HeapArray:
+    var data: Pointer[Int]
+    var size: Int
+
+    fn __init__(inout self, size: Int, val: Int):
+        self.size = size
+        self.data = Pointer[Int].alloc(self.size)
+        for i in range(self.size):
+            self.data.store(i, val)
+
+    fn __copyinit__(inout self, existing: Self):
+        # Deep-copy the existing value
+        self.size = existing.size
+        self.data = Pointer[Int].alloc(self.size)
+        for i in range(self.size):
+            self.data.store(i, existing.data.load(i))
+
+    fn __moveinit__(inout self, owned existing: Self):
+        print("move")
+        # Shallow copy the existing value
+        self.size = existing.size
+        self.data = existing.data
+        # Then the lifetime of `existing` ends here, but
+        # Mojo does NOT call its destructor
+
+    fn __del__(owned self):
+        self.data.free()
+
+    fn dump(self):
+        print("[", end="")
+        for i in range(self.size):
+            if i > 0:
+                print(", ", end="")
+            print(self.data.load(i), end="")
+        print("]")
+```
+
+### Modules and Package
+
+Mojo provides a packaging system that allows you to organize and compile code libraries into importable files. This page introduces the necessary concepts about how to organize your code into modules and packages (which is a lot like Python), and shows you how to create a packaged binary with the [mojo package](https://docs.modular.com/mojo/cli/package.html) command.
+
+#### Modules
+
+A Mojo module is a single Mojo source file that includes code suitable for use by other files that import it. For example, you can create a module to define a struct such as this one:
+
+```mojo
+# Source: https://docs.modular.com/mojo/manual/packages
+
+struct MyPair:
+    var first: Int
+    var second: Int
+
+    fn __init__(inout self, first: Int, second: Int):
+        self.first = first
+        self.second = second
+
+    fn dump(self):
+        print(self.first, self.second)
+```
+
+Notice that this code has no `main()` function, so you can't execute `mymodule.mojo`. However, you can import this into another file with a `main()` function and use it there.
+
+#### Packages
+
+A Mojo package is just a collection of Mojo modules in a directory that includes an `__init__.mojo` file. By organizing modules together in a directory, you can then import all the modules together or individually. Optionally, you can also compile the package into a `.mojopkg` or `.📦` file that's easier to share and still compatible with other system architectures.
+
+You can import a package and its modules either directly from source files or from a compiled `.mojopkg/.📦` file. It makes no real difference to Mojo which way you import a package. When importing from source files, the directory name works as the package name, whereas when importing from a compiled package, the filename is the package name (which you specify with the [mojo package](https://docs.modular.com/mojo/cli/package.html) command—it can differ from the directory name).
+
+## References
+
+- [Modular AI](https://www.modular.com)
+- [Mojo Documentation](https://docs.modular.com/mojo/)
+- [Mojo GitHub Repository](https://github.com/modularml/mojo)
+- [Mojo - A New Programming Language for AI](https://refine.dev/blog/mojo-programming-language/#assembling-your-magic-code)
