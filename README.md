@@ -42,6 +42,8 @@ Mojo's multi-paradigm approach empowers developers to tackle any problem with ea
 Mojo supports imperative programming, allowing developers to write code that specifies the sequence of operations to be performed. This paradigm is well-suited for tasks that require step-by-step execution. For example, the following code snippet demonstrates an imperative approach to calculating the sum of an array of numbers using the Kahan summation algorithm:
 
 ```mojo
+# Source: https://github.com/modularml/mojo/blob/main/examples/reduce.mojo
+
 from tensor import Tensor
 
 # Simple summation of the array elements
@@ -55,8 +57,22 @@ fn naive_reduce_sum[size: Int](array: Tensor[type]) -> Float32:
         c = (t - my_sum) - y
         my_sum = t
     return my_sum
+```
 
-# Source: https://github.com/modularml/mojo/blob/main/examples/reduce.mojo
+### Functional Programming
+
+Mojo's support for functional programming enables developers to write concise, expressive code that emphasizes immutability and pure functions. This paradigm is well-suited for tasks that involve transformations on data structures and parallel processing. However, due to the unmaturity of the functional programming paradigm in Mojo, the language does not yet support higher-order functions, currying, or monads. Nevertheless, developers can still leverage functional programming principles to write elegant and efficient code. For example, Mojo provides `map` functions that allows developers to maps a function over a range from 0 to size:
+
+```mojo
+from algorithm import map
+
+fn double(x: Int) -> Int:
+    return x * 2
+
+fn main():
+ var arr = InlinedFixedVector[Int, 9](9)
+ var doubled = map(arr, double)
+ print(doubled)
 ```
 
 ### Object-Oriented Programming
@@ -69,6 +85,7 @@ A cornerstone of Mojo's object-oriented capabilities is the struct, a versatile 
 
 ```mojo
 # Source: https://github.com/modularml/mojo/blob/main/examples/nbody.mojo
+
 @value
 struct Planet:
     var pos: SIMD[DType.float64, 4]
