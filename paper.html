@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <style>
+            
+        </style>
+        <link rel="stylesheet" href="file:///Users/macbook/node_modules/repo-to-pdf/html5bp/css/normalize.css">
+        <link rel="stylesheet" href="file:///Users/macbook/node_modules/repo-to-pdf/html5bp/css/main.css">
+        <link rel="stylesheet" href="file:///Users/macbook/node_modules/repo-to-pdf/html5bp/css/github-min.css">
+        <link rel="stylesheet" href="file:///Users/macbook/node_modules/repo-to-pdf/html5bp/css/vs.css">
+        <script src="file:///Users/macbook/node_modules/repo-to-pdf/html5bp/js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <article class="markdown-body"><h1 id=. anchor=true>.</h1>
+<h1 id=Mojo Programming Language Paper anchor=true>Mojo Programming Language Paper</h1>
+<p>Author: <a href="https://minhtran-nine.vercel.app">Minh Tran</a></p>
+<h2 id=Table of Contents anchor=true>Table of Contents</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#history-and-background">History and Background</a>
+<ul>
+<li><a href="#the-genesis-of-mojo">The Genesis of Mojo</a></li>
+<li><a href="#performance-prowess">Performance Prowess</a></li>
+</ul></li>
+<li><a href="#domain-of-mojo">Domain of Mojo</a>
+<ul>
+<li><a href="#ai-development">AI Development</a></li>
+<li><a href="#microservices-and-cloud-computing">Microservices and Cloud Computing</a></li>
+<li><a href="#emerging-technologies">Emerging Technologies</a></li>
+</ul></li>
+<li><a href="#paradigms">Paradigms</a>
+<ul>
+<li><a href="#imperative-programming">Imperative Programming</a></li>
+<li><a href="#functional-programming">Functional Programming</a></li>
+<li><a href="#object-oriented-programming">Object-Oriented Programming</a>
+<ul>
+<li><a href="#struct">Struct</a></li>
+<li><a href="#trait">Trait</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#explore-mojos-standard-library">Explore Mojo's Standard Library</a></li>
+<li><a href="#value-life-cycle-and-ownership">Value Life Cycle and Ownership</a>
+<ul>
+<li><a href="#life-of-a-value">Life of a Value</a></li>
+<li><a href="#ownership">Ownership</a></li>
+</ul></li>
+<li><a href="#modules-and-package">Modules and Package</a>
+<ul>
+<li><a href="#modules">Modules</a></li>
+<li><a href="#package">Package</a></li>
+<li><a href="#importing-package-and-modules">Importing Package and Modules</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+<li><a href="#appendix">Appendix</a></li>
+</ul>
+<h2 id=Introduction anchor=true>Introduction</h2>
+<p>Mojo represents a revolutionary leap forward in programming languages, seamlessly blending the elegance of Python's syntax with the power of systems programming and metaprogramming. This unique amalgamation empowers developers to craft high-performance, portable code that surpasses traditional languages like C, all while seamlessly integrating with the extensive Python ecosystem.</p>
+<h2 id=History and Background anchor=true>History and Background</h2>
+<p>Mojo emerged from the visionary mind of <a href="https://twitter.com/clattner_llvm?lang=en">Chris Lattner</a>, CEO, and co-founder of <a href="https://www.modular.com">Modular AI</a>. With a storied history of groundbreaking contributions to Swift, Clang, and LLVM, Lattner's influence permeates Mojo's DNA.</p>
+<h3 id=The Genesis of Mojo anchor=true>The Genesis of Mojo</h3>
+<p>Rooted in Modular AI's mission to democratize AI programming, Mojo addresses the dual challenges of performance and accessibility. By marrying the efficiency of C with the accessibility of Python, Mojo aims to usher in a new era of AI development, where innovation knows no bounds.</p>
+<h3 id=Performance Prowess anchor=true>Performance Prowess</h3>
+<p>Mojo's performance is nothing short of astonishing, boasting a remarkable 35,000x speed improvement over Python. Leveraging advanced techniques such as <a href="https://mlir.llvm.org">Multi-Level Intermediate Representation (MLIR)</a> and the <a href="https://llvm.org">LLVM toolchain</a>, Mojo redefines the boundaries of what's possible, setting new standards for performance-driven programming.</p>
+<h2 id=Domain of Mojo anchor=true>Domain of Mojo</h2>
+<h3 id=AI Development anchor=true>AI Development</h3>
+<p>In the realm of AI development, Mojo shines as a beacon of simplicity and power. By abstracting away the complexities of languages like C++, Mojo empowers developers to focus on what truly matters: innovation. With MLIR under the hood, Mojo enables developers to push the boundaries of AI without being bogged down by cumbersome syntax.</p>
+<h3 id=Microservices and Cloud Computing anchor=true>Microservices and Cloud Computing</h3>
+<p>Mojo's lightweight syntax and built-in concurrency support make it the ideal choice for microservices development in modern cloud architectures. Its seamless scalability and fault tolerance ensure that Mojo-powered applications can handle anything thrown their way, making it a cornerstone of resilient distributed systems.</p>
+<h3 id=Emerging Technologies anchor=true>Emerging Technologies</h3>
+<p>In the rapidly evolving landscape of emerging technologies, Mojo stands tall as a versatile and adaptable solution. From AI and machine learning to the Internet of Things (IoT), Mojo's performance, scalability, and interoperability make it the go-to choice for developers tackling the challenges of tomorrow.</p>
+<h2 id=Paradigms anchor=true>Paradigms</h2>
+<p>Mojo's multi-paradigm approach empowers developers to tackle any problem with ease, offering the flexibility of imperative, functional, and object-oriented programming paradigms.</p>
+<h3 id=Imperative Programming anchor=true>Imperative Programming</h3>
+<p>Mojo supports imperative programming, allowing developers to write code that specifies the sequence of operations to be performed. This paradigm is well-suited for tasks that require step-by-step execution. For example, the following code snippet demonstrates an imperative approach to calculating the sum of an array of numbers using the <a href="https://en.wikipedia.org/wiki/Kahan_summation_algorithm">Kahan summation algorithm</a>:</p>
+<pre><code class="language-mojo"><span class="hljs-comment"># Source: https://github.com/modularml/mojo/blob/main/examples/reduce.mojo</span>
+
+<span class="hljs-keyword">from</span> tensor <span class="hljs-keyword">import</span> <span class="hljs-type">Tensor</span>
+
+<span class="hljs-comment"># Simple summation of the array elements</span>
+fn naive_reduce_sum[size: <span class="hljs-type">Int</span>](<span class="hljs-built_in">array</span>: <span class="hljs-type">Tensor</span>[<span class="hljs-keyword">type</span>]) -&gt; <span class="hljs-type">Float32</span>:
+    <span class="hljs-keyword">var</span> A = <span class="hljs-built_in">array</span>
+    <span class="hljs-keyword">var</span> my_sum = <span class="hljs-built_in">array</span>[<span class="hljs-number">0</span>]
+    <span class="hljs-keyword">var</span> c: <span class="hljs-type">Float32</span> = <span class="hljs-number">0</span>.<span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">array</span>.dim(<span class="hljs-number">0</span>)):
+        <span class="hljs-keyword">var</span> y = <span class="hljs-built_in">array</span>[i] - c
+        <span class="hljs-keyword">var</span> t = my_sum + y
+        c = (t - my_sum) - y
+        my_sum = t
+    <span class="hljs-keyword">return</span> my_sum
+</code></pre>
+<h3 id=Functional Programming anchor=true>Functional Programming</h3>
+<p>Mojo's functional programming support enables developers to write concise, expressive code focused on immutability and pure functions. While Mojo's functional programming capabilities are still evolving and lack features like higher-order functions, currying, or monads, developers can still apply functional programming principles effectively. For example, Mojo provides <code>map</code> functions, allowing developers to apply a function over a range from 0 to a specified size.</p>
+<pre><code class="language-mojo"><span class="hljs-keyword">from</span> algorithm <span class="hljs-keyword">import</span> <span class="hljs-keyword">map</span>
+
+fn double<span class="hljs-function"><span class="hljs-params">(x: Int)</span> -&gt;</span> Int:
+    <span class="hljs-keyword">return</span> x * <span class="hljs-number">2</span>
+
+fn main():
+    <span class="hljs-keyword">var</span> arr = InlinedFixedVector[Int, <span class="hljs-number">9</span>](<span class="hljs-number">9</span>)
+    <span class="hljs-keyword">var</span> doubled = <span class="hljs-keyword">map</span>(arr, double) <span class="hljs-comment"># Pass the function `double` to `map` as an argument</span>
+    <span class="hljs-built_in">print</span>(doubled)
+</code></pre>
+<h3 id=Object-Oriented Programming anchor=true>Object-Oriented Programming</h3>
+<p>Mojo's support for object-oriented programming elevates the language to new heights, empowering developers to conceptualize real-world entities as objects with attributes and methods. This paradigm fosters code organization, reusability, and modularity, facilitating the creation of scalable and maintainable software solutions.</p>
+<h4 id=Struct anchor=true>Struct</h4>
+<p>A cornerstone of Mojo's object-oriented capabilities is the <code>struct</code>, a versatile data structure that encapsulates both fields and methods operating on an abstraction, such as a data type or an object. Fields represent variables holding data relevant to the <code>struct</code>, while methods, functions housed within a <code>struct</code>, typically act upon this field data. For instance, consider the following illustrative code snippet, showcasing an object-oriented approach to defining a Planet class with attributes and methods:</p>
+<pre><code class="language-mojo">@value
+struct Planet:
+    var pos: SIMD[DType.<span class="hljs-built_in">float</span>64, <span class="hljs-number">4</span>]
+    var velocity: SIMD[DType.<span class="hljs-built_in">float</span>64, <span class="hljs-number">4</span>]
+    var mass: Float64
+
+    fn __init__(
+        <span class="hljs-keyword">inout</span> self,
+        pos: SIMD[DType.<span class="hljs-built_in">float</span>64, <span class="hljs-number">4</span>],
+        velocity: SIMD[DType.<span class="hljs-built_in">float</span>64, <span class="hljs-number">4</span>],
+        mass: Float64,
+    ):
+        self.pos = pos
+        self.velocity = velocity
+        self.mass = mass
+
+# Source: https:<span class="hljs-comment">//github.com/modularml/mojo/blob/main/examples/nbody.mojo</span>
+</code></pre>
+<h4 id=Trait anchor=true>Trait</h4>
+<p>In addition to structs, Mojo boasts robust support for inheritance through traits. A trait, akin to a contract, delineates a set of requirements that a type must fulfill. Comparable to Java interfaces, C++ concepts, Swift protocols, and Rust traits, Mojo's traits offer a flexible mechanism for defining shared behavior among types. Consider the following example of a trait in Mojo:</p>
+<pre><code class="language-mojo"><span class="hljs-keyword">trait</span> Quackable:
+    fn quack(<span class="hljs-built_in">self</span>):
+        <span class="hljs-params">...</span>
+</code></pre>
+<p>The <code>Quackable</code> trait consist of method signatures, each denoted by three dots (...) to indicate their unimplemented status. Leveraging traits, developers can create reusable components that adhere to a defined set of behaviors. For instance, Mojo allows the creation of structs conforming to the Quackable trait:</p>
+<pre><code class="language-mojo"><span class="hljs-variable">@value</span>
+struct Duck(Quackable):
+    fn quack(self):
+        print(<span class="hljs-string">&quot;Quack&quot;</span>)
+
+<span class="hljs-variable">@value</span>
+struct StealthCow(Quackable):
+    fn quack(self):
+        print(<span class="hljs-string">&quot;Moo!&quot;</span>)
+</code></pre>
+<p>Moreover, Mojo facilitates trait inheritance, enabling the creation of hierarchical trait structures. Traits can inherit from other traits, thereby inheriting all requirements declared by their parent traits:</p>
+<pre><code class="language-mojo"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Animal</span></span>:
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">make_sound</span></span>(<span class="hljs-keyword">self</span>):
+        ...
+
+# Bird inherits from Animal
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Bird</span></span>(Animal):
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">fly</span></span>(<span class="hljs-keyword">self</span>):
+        ...
+
+# Inherit from multiple traits
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Duck</span></span>(Bird, Quackable):
+    ...
+</code></pre>
+<p>This hierarchical trait system empowers developers to create expressive and composable abstractions, fostering code that is both flexible and maintainable.</p>
+<h2 id=Explore Mojo's Standard Library anchor=true>Explore Mojo's Standard Library</h2>
+<p>Mojo's standard library serves as a comprehensive toolkit, encompassing a wide array of modules and utilities aimed at enhancing development efficiency. From fundamental mathematical operations to intricate file I/O and networking tasks, the standard library furnishes developers with indispensable resources for crafting robust and high-performing applications. Here are some notable modules within Mojo's standard library:</p>
+<ul>
+<li><a href="https://docs.modular.com/mojo/stdlib/tensor/"><code>tensor</code></a>: A module for tensor operations, enabling efficient manipulation of multi-dimensional arrays.</li>
+<li><a href="https://docs.modular.com/mojo/stdlib/python/"><code>python</code></a>: A module for interacting with Python code and data structures, facilitating seamless integration with the Python ecosystem.</li>
+<li><a href="https://docs.modular.com/mojo/stdlib/algorithm/"><code>algorithm</code></a>: A module containing common algorithms and data structures, such as sorting and functional programming utilities.</li>
+<li><a href="https://docs.modular.com/mojo/stdlib/collections/"><code>collections</code></a>: A module for working with collections, including lists, sets, and dictionaries.</li>
+<li><a href="https://docs.modular.com/mojo/stdlib/math/"><code>math</code></a>: A module providing mathematical functions such as polynomial evaluation and bit manipulation.</li>
+</ul>
+<p>Currently, Mojo's standard library comprises approximately 20 modules, each meticulously designed to meet diverse programming needs. Expect ongoing expansion and refinement in future releases, as Mojo evolves to cater to emerging requirements and industry trends.</p>
+<h2 id=Value Life Cycle and Ownership anchor=true>Value Life Cycle and Ownership</h2>
+<h3 id=Life of a Value anchor=true>Life of a Value</h3>
+<p>Mojo has no built-in data types with special privileges. All data types in the standard library (such as <code>Bool</code>, <code>Int</code>, and <code>String</code>) are implemented as <code>structs</code>. You can actually write your own replacements for these types by using low-level primitives provided by <a href="https://docs.modular.com/mojo/notebooks/BoolMLIR.html">MLIR dialects</a>.</p>
+<p>The life of a value in Mojo begins when a variable is initialized and continues up until the value is last used, at which point Mojo destroys it. Mojo destroys every value/object as soon as it's no longer used, using an “as soon as possible” (ASAP) destruction policy that runs after every sub-expression.</p>
+<p>For each <code>struct</code>, Mojo equips it with copy constructors, move constructors, and destructors. The copy constructor is invoked when passing or returning a <code>struct</code> by value. Below illustrates a <code>HeapArray</code> struct showcasing copy and move constructors alongside a destructor:</p>
+<pre><code class="language-mojo">struct HeapArray:
+    var <span class="hljs-keyword">data</span>: <span class="hljs-keyword">Pointer</span>[<span class="hljs-built_in">Int</span>]
+    var <span class="hljs-built_in">size</span>: <span class="hljs-built_in">Int</span>
+
+    fn __init__(inout self, <span class="hljs-built_in">size</span>: <span class="hljs-built_in">Int</span>, val: <span class="hljs-built_in">Int</span>):
+        self.<span class="hljs-built_in">size</span> = <span class="hljs-built_in">size</span>
+        self.<span class="hljs-keyword">data</span> = <span class="hljs-keyword">Pointer</span>[<span class="hljs-built_in">Int</span>].alloc(self.<span class="hljs-built_in">size</span>)
+        for i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(self.<span class="hljs-built_in">size</span>):
+            self.<span class="hljs-keyword">data</span>.store(i, val)
+
+    fn __copyinit__(inout self, existing: Self):
+        # Deep-copy the existing <span class="hljs-keyword">value</span>
+        self.<span class="hljs-built_in">size</span> = existing.<span class="hljs-built_in">size</span>
+        self.<span class="hljs-keyword">data</span> = <span class="hljs-keyword">Pointer</span>[<span class="hljs-built_in">Int</span>].alloc(self.<span class="hljs-built_in">size</span>)
+        for i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(self.<span class="hljs-built_in">size</span>):
+            self.<span class="hljs-keyword">data</span>.store(i, existing.<span class="hljs-keyword">data</span>.load(i))
+
+    fn __moveinit__(inout self, owned existing: Self):
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;move&quot;</span>)
+        # Shallow copy the existing <span class="hljs-keyword">value</span>
+        self.<span class="hljs-built_in">size</span> = existing.<span class="hljs-built_in">size</span>
+        self.<span class="hljs-keyword">data</span> = existing.<span class="hljs-keyword">data</span>
+        # <span class="hljs-keyword">Then</span> the lifetime of `existing` ends here, but
+        # Mojo does NOT <span class="hljs-keyword">call</span> its destructor
+
+    fn __del__(owned self):
+        self.<span class="hljs-keyword">data</span>.<span class="hljs-keyword">free</span>()
+
+    fn dump(self):
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;[&quot;</span>, <span class="hljs-keyword">end</span>=<span class="hljs-string">&quot;&quot;</span>)
+        for i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(self.<span class="hljs-built_in">size</span>):
+            <span class="hljs-keyword">if</span> i &gt; <span class="hljs-number">0</span>:
+                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;, &quot;</span>, <span class="hljs-keyword">end</span>=<span class="hljs-string">&quot;&quot;</span>)
+            <span class="hljs-built_in">print</span>(self.<span class="hljs-keyword">data</span>.load(i), <span class="hljs-keyword">end</span>=<span class="hljs-string">&quot;&quot;</span>)
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;]&quot;</span>)
+
+# Source: https://docs.modular.com/mojo/manual/lifecycle/life
+</code></pre>
+<h3 id=Ownership anchor=true>Ownership</h3>
+<p>Mojo helps avoid side effects and memory leaks by enforcing a strict ownership model. The ownership model in Mojo utilizes <code>arguments conventions</code> to determine the ownership of a value. This specifies whether an argument is mutable or immutable ensure every value has only one owner at a time.</p>
+<ul>
+<li><code>borrowed</code>: The function receives an <strong>immutable reference</strong>. This means the function can read the original value (it is <em>not</em> a copy), but it cannot mutate (modify) it.  For example, the following code snippet demonstrates a function that prints a 3x3 Tic-Tac-Toe board:</li>
+</ul>
+<pre><code class="language-mojo"><span class="hljs-selector-tag">fn</span> <span class="hljs-selector-tag">print_board</span>(borrowed <span class="hljs-attribute">board</span>: InlinedFixedVector[Int, <span class="hljs-number">9</span>]):
+    <span class="hljs-selector-tag">for</span> <span class="hljs-selector-tag">i</span> <span class="hljs-selector-tag">in</span> <span class="hljs-selector-tag">range</span>(<span class="hljs-number">3</span>):
+        <span class="hljs-selector-tag">for</span> <span class="hljs-selector-tag">j</span> <span class="hljs-selector-tag">in</span> <span class="hljs-selector-tag">range</span>(<span class="hljs-number">3</span>):
+            <span class="hljs-selector-tag">print</span>(board[i * <span class="hljs-number">3</span> + j], end=<span class="hljs-string">&quot; &quot;</span>)
+        <span class="hljs-selector-tag">print</span>()
+</code></pre>
+<ul>
+<li><code>inout</code>: The function receives a <strong>mutable reference</strong>. This means the function can read and mutate the original value (it is <em>not</em> a copy). For example, the following code snippet demonstrates a function that fills a 9-element array with zeros (so it mutates the original array):</li>
+</ul>
+<pre><code class="language-mojo">fn fill_with_0(<span class="hljs-keyword">inout</span> board: InlinedFixedVector[Int, <span class="hljs-number">9</span>]):
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">9</span>):
+        board.append(<span class="hljs-number">0</span>)
+</code></pre>
+<ul>
+<li><code>owned</code>: The function takes <strong>ownership</strong>. This means the function has exclusive mutable access to the argument—the function caller does not have access to this value (anymore). Often, this also implies that the caller should transfer ownership to this function, but that's not always what happens and this might instead be a copy (as you'll learn below). For example, the following code works by making a copy of the string, because—although <code>take_text()</code> uses the owned convention—the caller does not include the transfer operator:</li>
+</ul>
+<pre><code class="language-mojo"><span class="hljs-variable">fn</span> <span class="hljs-function"><span class="hljs-title">take_text</span>(<span class="hljs-variable">owned</span> <span class="hljs-variable">text</span>: <span class="hljs-variable">String</span>):
+    <span class="hljs-variable">text</span> += <span class="hljs-string">&quot;!&quot;</span>
+    <span class="hljs-title">print</span>(<span class="hljs-variable">text</span>)</span>
+
+<span class="hljs-variable">fn</span> <span class="hljs-function"><span class="hljs-title">my_function</span>():
+    <span class="hljs-variable">var</span> <span class="hljs-variable">message</span>: <span class="hljs-variable">String</span> = <span class="hljs-string">&quot;Hello&quot;</span>
+    <span class="hljs-title">take_text</span>(<span class="hljs-variable">message</span>)</span>
+    <span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-variable">message</span>)</span>
+
+<span class="hljs-function"><span class="hljs-title">my_function</span>()</span>
+</code></pre>
+<h2 id=Modules and Package anchor=true>Modules and Package</h2>
+<p>Mojo offers a sophisticated packaging system designed to streamline the organization and compilation of code libraries into easily importable files. This guide serves as an introduction to the fundamental concepts of structuring your code into modules and packages, akin to the approach used in Python. Furthermore, it provides detailed instructions on crafting a packaged binary using the <a href="https://docs.modular.com/mojo/cli/package.html">mojo package</a> command.</p>
+<h3 id=Modules anchor=true>Modules</h3>
+<p>A Mojo module is a single Mojo source file that includes code suitable for use by other files that import it. For example, you can create a module to define a struct such as this one:</p>
+<pre><code class="language-mojo">struct MyPair:
+    <span class="hljs-keyword">var</span> first: <span class="hljs-keyword">Int</span>
+    <span class="hljs-keyword">var</span> second: <span class="hljs-keyword">Int</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">inout <span class="hljs-built_in">self</span>, first: <span class="hljs-keyword">Int</span>, second: <span class="hljs-keyword">Int</span></span>):
+        <span class="hljs-title">self</span>.<span class="hljs-title">first</span> = <span class="hljs-title">first</span>
+        <span class="hljs-title">self</span>.<span class="hljs-title">second</span> = <span class="hljs-title">second</span>
+
+    <span class="hljs-title">fn</span> <span class="hljs-title">dump</span>(<span class="hljs-params"><span class="hljs-built_in">self</span></span>):
+        <span class="hljs-title">print</span>(<span class="hljs-params"><span class="hljs-built_in">self</span>.first, <span class="hljs-built_in">self</span>.second</span>)
+
+# <span class="hljs-title">Source</span>: <span class="hljs-title">https</span>://<span class="hljs-title">docs</span>.<span class="hljs-title">modular</span>.<span class="hljs-title">com</span>/<span class="hljs-title">mojo</span>/<span class="hljs-title">manual</span>/<span class="hljs-title">packages</span>
+</span></code></pre>
+<p>Notice that this code has no <code>main()</code> function, so you can't execute <code>mymodule.mojo</code>. However, you can import this into another file with a <code>main()</code> function and use it there.</p>
+<h3 id=Package anchor=true>Package</h3>
+<p>A Mojo package is essentially a collection of Mojo modules within a directory structure, accompanied by an <code>__init__.mojo</code> file. This systematic arrangement facilitates the importation of modules either as a whole or individually. Moreover, there's the option to compile the package into a more portable <code>.mojopkg</code> or <code>.📦</code> file format, which ensures compatibility across various system architectures.</p>
+<h3 id=Importing Package and Modules anchor=true>Importing Package and Modules</h3>
+<p>Importing a Mojo package and its constituent modules can be accomplished in two ways:</p>
+<ol>
+<li><p><strong>From Source Files:</strong></p>
+<ul>
+<li>When importing directly from source files, the directory name is utilized as the package name.</li>
+</ul></li>
+<li><p><strong>From Compiled Package Files (.mojopkg/.📦):</strong></p>
+<ul>
+<li>Importing from a compiled package involves using the filename as the package name, as specified during the compilation process using the <a href="https://docs.modular.com/mojo/cli/package.html">mojo package</a> command. This filename might differ from the directory name.</li>
+</ul></li>
+</ol>
+<p>Regardless of the method chosen, Mojo treats both approaches equally, ensuring flexibility in the importation process.</p>
+<h2 id=References anchor=true>References</h2>
+<ul>
+<li><a href="https://www.modular.com">Modular AI</a></li>
+<li><a href="https://docs.modular.com/mojo/">Mojo Documentation</a></li>
+<li><a href="https://github.com/modularml/mojo">Mojo GitHub Repository</a></li>
+<li><a href="https://refine.dev/blog/mojo-programming-language/#assembling-your-magic-code">Mojo - A New Programming Language for AI</a></li>
+<li><a href="https://llvm.org">LLVM</a></li>
+<li><a href="https://mlir.llvm.org">MLIR</a></li>
+</ul>
+<h2 id=Appendix anchor=true>Appendix</h2>
+<p>I implemented a Tic-Tac-Toe game in Mojo. You can find the source code <a href="https://github.com/minhtran241/mojo-playground/blob/main/tictactoe.mojo">here</a>. This is a simple example to demonstrate how to use basic syntax and data structures in Mojo.</p>
+<pre><code class="language-mojo">from <span class="hljs-keyword">python</span> import Python
+from collections.vector import InlinedFixedVector
+
+var size: Int = <span class="hljs-number">9</span>
+
+
+fn fill_with_0(inout board: InlinedFixedVector[Int, <span class="hljs-number">9</span>]):
+    <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">&quot;</span>
+    Fill the board with <span class="hljs-number">0</span>s.
+
+    Arg<span class="hljs-variable">s:</span>
+        board: The board <span class="hljs-keyword">to</span> fill with <span class="hljs-number">0</span>s. It should <span class="hljs-keyword">be</span> <span class="hljs-keyword">a</span> <span class="hljs-number">1</span>D array of size <span class="hljs-number">9</span>.
+    <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">&quot;</span>
+    <span class="hljs-keyword">for</span> i in <span class="hljs-built_in">range</span>(<span class="hljs-number">9</span>):
+        board.<span class="hljs-keyword">append</span>(<span class="hljs-number">0</span>)
+
+fn print_board(borrowed board: InlinedFixedVector[Int, <span class="hljs-number">9</span>]):
+    <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">&quot;</span>
+    <span class="hljs-keyword">Print</span> the board.
+
+    Arg<span class="hljs-variable">s:</span>
+        board: The board <span class="hljs-keyword">to</span> <span class="hljs-keyword">print</span>. It should <span class="hljs-keyword">be</span> <span class="hljs-keyword">a</span> <span class="hljs-number">1</span>D array of size <span class="hljs-number">9</span>.
+    <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">&quot;</span>
+    <span class="hljs-keyword">for</span> i in <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):
+        <span class="hljs-keyword">for</span> <span class="hljs-keyword">j</span> in <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):
+            <span class="hljs-keyword">print</span>(board[i * <span class="hljs-number">3</span> + <span class="hljs-keyword">j</span>], end=<span class="hljs-string">&quot; &quot;</span>)
+        <span class="hljs-keyword">print</span>()
+
+fn validate_input(borrowed user_inp: Int) -&gt; Boo<span class="hljs-variable">l:</span>
+    <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">&quot;</span>
+    Validate the user <span class="hljs-built_in">input</span>. The <span class="hljs-built_in">input</span> should <span class="hljs-keyword">be</span> between <span class="hljs-number">1</span> <span class="hljs-built_in">and</span> <span class="hljs-number">9</span>.
+
+    Arg<span class="hljs-variable">s:</span>
+        user_inp: The user <span class="hljs-built_in">input</span> <span class="hljs-keyword">to</span> validate.
+
+    Return<span class="hljs-variable">s:</span>
+        True <span class="hljs-keyword">if</span> the <span class="hljs-built_in">input</span> <span class="hljs-keyword">is</span> valid, False otherwise.
+    <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">&quot;</span>
+    <span class="hljs-keyword">return</span> user_inp &gt;= <span class="hljs-number">1</span> <span class="hljs-built_in">and</span> user_inp &lt;= <span class="hljs-number">9</span>
+
+fn is_full(borrowed board: InlinedFixedVector[Int, <span class="hljs-number">9</span>]) -&gt; Boo<span class="hljs-variable">l:</span>
+    <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">&quot;</span>
+    Check <span class="hljs-keyword">if</span> the board <span class="hljs-keyword">is</span> full.
+
+    Arg<span class="hljs-variable">s:</span>
+        board: The board <span class="hljs-keyword">to</span> check. It should <span class="hljs-keyword">be</span> <span class="hljs-keyword">a</span> <span class="hljs-number">1</span>D array of size <span class="hljs-number">9</span>.
+
+    Return<span class="hljs-variable">s:</span>
+        True <span class="hljs-keyword">if</span> the board <span class="hljs-keyword">is</span> full, False otherwise.
+    <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">&quot;</span>
+    <span class="hljs-keyword">for</span> i in <span class="hljs-built_in">range</span>(<span class="hljs-number">9</span>):
+        <span class="hljs-keyword">if</span> board[i] == <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">return</span> False
+    <span class="hljs-keyword">return</span> True
+
+fn random_move(inout board: InlinedFixedVector[Int, <span class="hljs-number">9</span>]) raise<span class="hljs-variable">s:</span>
+    <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">&quot;</span>
+    Make <span class="hljs-keyword">a</span> random <span class="hljs-keyword">move</span> <span class="hljs-keyword">for</span> the computer.
+
+    Arg<span class="hljs-variable">s:</span>
+        board: The board <span class="hljs-keyword">to</span> <span class="hljs-keyword">make</span> the <span class="hljs-keyword">move</span> <span class="hljs-keyword">on</span>. It should <span class="hljs-keyword">be</span> <span class="hljs-keyword">a</span> <span class="hljs-number">1</span>D array of size <span class="hljs-number">9</span>.
+    <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">&quot;</span>
+    var <span class="hljs-keyword">py</span> = Python().import_module(<span class="hljs-string">&quot;random&quot;</span>)
+    <span class="hljs-keyword">if</span> is_full(board):
+        <span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;It&#x27;s a tie&quot;</span>)
+        <span class="hljs-keyword">return</span>
+    var random_number = atol(<span class="hljs-keyword">py</span>.randint(<span class="hljs-number">0</span>, <span class="hljs-number">8</span>))
+    <span class="hljs-keyword">while</span> board[random_number] != <span class="hljs-number">0</span>:
+        random_number = atol(<span class="hljs-keyword">py</span>.randint(<span class="hljs-number">0</span>, <span class="hljs-number">8</span>))
+    board[random_number] = <span class="hljs-number">2</span>
+
+fn compute_winner(borrowed board: InlinedFixedVector[Int, <span class="hljs-number">9</span>]) -&gt; In<span class="hljs-variable">t:</span>
+    <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">&quot;</span>
+    Compute the winner of the game. The winner can <span class="hljs-keyword">be</span> <span class="hljs-number">0</span> (<span class="hljs-keyword">no</span> winner), <span class="hljs-number">1</span> (user), <span class="hljs-built_in">or</span> <span class="hljs-number">2</span> (computer).
+
+    Arg<span class="hljs-variable">s:</span>
+        board: The board <span class="hljs-keyword">to</span> compute the winner <span class="hljs-keyword">on</span>. It should <span class="hljs-keyword">be</span> <span class="hljs-keyword">a</span> <span class="hljs-number">1</span>D array of size <span class="hljs-number">9</span>.
+    
+    Return<span class="hljs-variable">s:</span>
+        The winner of the game.
+    <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">&quot;</span>
+    <span class="hljs-keyword">for</span> i in <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):
+        <span class="hljs-keyword">if</span> board[i * <span class="hljs-number">3</span>] == board[i * <span class="hljs-number">3</span> + <span class="hljs-number">1</span>] <span class="hljs-built_in">and</span> board[i * <span class="hljs-number">3</span> + <span class="hljs-number">1</span>] == board[i * <span class="hljs-number">3</span> + <span class="hljs-number">2</span>]:
+            <span class="hljs-keyword">return</span> board[i * <span class="hljs-number">3</span>]
+        <span class="hljs-keyword">if</span> board[i] == board[i + <span class="hljs-number">3</span>] <span class="hljs-built_in">and</span> board[i + <span class="hljs-number">3</span>] == board[i + <span class="hljs-number">6</span>]:
+            <span class="hljs-keyword">return</span> board[i]
+    <span class="hljs-keyword">if</span> board[<span class="hljs-number">0</span>] == board[<span class="hljs-number">4</span>] <span class="hljs-built_in">and</span> board[<span class="hljs-number">4</span>] == board[<span class="hljs-number">8</span>]:
+        <span class="hljs-keyword">return</span> board[<span class="hljs-number">0</span>]
+    <span class="hljs-keyword">if</span> board[<span class="hljs-number">2</span>] == board[<span class="hljs-number">4</span>] <span class="hljs-built_in">and</span> board[<span class="hljs-number">4</span>] == board[<span class="hljs-number">6</span>]:
+        <span class="hljs-keyword">return</span> board[<span class="hljs-number">2</span>]
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+
+fn main() raise<span class="hljs-variable">s:</span>
+    # Initialize the board.
+    var vector = InlinedFixedVector[Int, <span class="hljs-number">9</span>](<span class="hljs-number">9</span>)
+    fill_with_0(vector)
+    print_board(vector)
+
+    # Start the game.
+    var <span class="hljs-keyword">py</span> = Python().import_module(<span class="hljs-string">&quot;builtins&quot;</span>)
+    <span class="hljs-keyword">while</span> True:
+        <span class="hljs-keyword">if</span> is_full(vector):
+            <span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;It&#x27;s a tie&quot;</span>)
+            <span class="hljs-keyword">break</span>
+        # Get the user <span class="hljs-built_in">input</span>.
+        var user_inp =  atol(<span class="hljs-keyword">py</span>.<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Enter a number between 1 and 9: &quot;</span>))
+        # Validate the user <span class="hljs-built_in">input</span>. If it <span class="hljs-keyword">is</span> valid, <span class="hljs-keyword">make</span> the <span class="hljs-keyword">move</span> <span class="hljs-built_in">and</span> check the winner.
+        <span class="hljs-keyword">if</span> validate_input(user_inp):
+            vector[user_inp - <span class="hljs-number">1</span>] = <span class="hljs-number">1</span>
+            random_move(vector)
+            var winner = compute_winner(vector)
+            <span class="hljs-keyword">if</span> winner == <span class="hljs-number">1</span>:
+                <span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;You won&quot;</span>)
+                <span class="hljs-keyword">break</span>
+            elif winner == <span class="hljs-number">2</span>:
+                <span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;You lost&quot;</span>)
+                <span class="hljs-keyword">break</span>
+            # If there <span class="hljs-keyword">is</span> <span class="hljs-keyword">no</span> winner, <span class="hljs-keyword">print</span> the board <span class="hljs-built_in">and</span> <span class="hljs-keyword">continue</span> the game.
+            print_board(vector)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;Invalid input. Please enter a number between 1 and 9.&quot;</span>)
+</code></pre>
+</article>
+
+            
+        <script src="file:///Users/macbook/node_modules/repo-to-pdf/html5bp/js/vendor/jquery-1.10.2.min.js"></script>
+        <script src="file:///Users/macbook/node_modules/repo-to-pdf/html5bp/js/plugins.js"></script>
+        <script src="file:///Users/macbook/node_modules/repo-to-pdf/html5bp/js/main.js"></script>
+    </body>
+</html>
